@@ -1,10 +1,12 @@
 .n-wrapper {
   height: 10vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   margin-bottom: 2rem;
   top: 0;
+  margin-right: -20%;
 }
+
 .n-left {
   flex: 1;
   align-items: center;
@@ -17,6 +19,7 @@
   font-size: 1.3rem;
   font-weight: bold;
 }
+
 .n-right {
   flex: 1;
   display: flex;
@@ -28,19 +31,54 @@
 .n-list {
   flex: 10;
 }
+
 .n-list > ul {
   display: flex;
   gap: 2rem;
   margin-right: 4rem;
+  padding: 0;
+  list-style: none; /* Remove default list styling */
 }
 
-.n-list > ul :hover {
-  color: var(--orange);
+.n-list > ul > li {
+  position: relative;
+}
+
+.n-list > ul > li > a {
+  text-decoration: none;
+  color: #333; /* Default text color */
+  position: relative;
+  padding-bottom: 5px; /* Space for the line */
+  transition: color 0.3s ease;
+}
+
+.n-list > ul > li > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2.5px;
+  background-color: var(--orange); /* Line color */
+  transition: width 0.5s ease;
+}
+
+.n-list > ul > li > a:hover {
+  color: var(--orange); /* Change text color on hover */
   cursor: pointer;
+}
+
+.n-list > ul > li > a:hover::after {
+  width: 100%; /* Expand line on hover */
 }
 
 .n-button {
   flex: 2;
+}
+
+.logo {
+  width: 100%; /* Corrected width property */
+  height: 40px;
 }
 
 @media screen and (max-width: 480px) {

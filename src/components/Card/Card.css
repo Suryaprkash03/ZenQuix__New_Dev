@@ -30,6 +30,7 @@
     padding: 10px;
     font-size: 16px;
     color: #5290FD;
+    
 }
 
 .c-button:hover{
@@ -38,7 +39,13 @@
 }
 /* cards */
 
-
+.heading
+{
+  color: brown;
+  margin-top:70px ;
+  font-family: "Poppins";
+  font-weight: 800;
+}
 
 
 @media screen and (max-width: 480px){

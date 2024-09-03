@@ -1,0 +1,79 @@
+.modal-overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.modal-circle1{
+    width: 190rem;
+    height: 90rem;
+    background: rgb(241, 241, 241);
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    transform: scale(0);
+    animation: zoomIn 0.8s forwards;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-body1 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    opacity: 0;
+    animation: fadeIn 0.3s forwards 0.3s;
+    animation: fadeOut 0.3s forwards 0.3s;
+    font-family: "Poppins";
+}
+
+.close-button1 {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--orange);
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

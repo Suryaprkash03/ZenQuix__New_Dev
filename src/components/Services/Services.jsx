@@ -1,19 +1,10 @@
-import React, { useContext } from "react";
-import "./Services.css";
-import Card from "../Card/Card";
-import HeartEmoji from "../../img/heartemoji.png";
-import Glasses from "../../img/glasses.png";
-import Humble from "../../img/humble.png";
-import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
-import Resume from './resume.pdf';
+import React from "react";
+import Card from "../Card/Card";
+import "./Services.css";
 
 const Services = () => {
-  // context
-  const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
 
-  // transition
   const transition = {
     duration: 1,
     type: "spring",
@@ -21,62 +12,60 @@ const Services = () => {
 
   return (
     <div className="services" id="services">
-      {/* left side */}
       <div className="awesome">
-        {/* dark mode */}
-        <span style={{ color: darkMode ? "white" : "" }}>My Awesome</span>
-        <span>services</span>
+        <span>About Us</span>
+        <span>ZenQuix Technologies inc</span>
         <spane>
-          Lorem ispum is simpley dummy text of printing of printing Lorem
+          We provide world class Networking, Infrastructure
           <br />
-          ispum is simpley dummy text of printing
+          Computing & so many other services
         </spane>
-        <a href={Resume} download>
-          <button className="button s-button">Download CV</button>
-        </a>
         <div className="blur s-blur1" style={{ background: "#ABF1FF94" }}></div>
       </div>
-      {/* right */}
       <div className="cards">
-        {/* first card */}
         <motion.div
-          initial={{ left: "25rem" }}
-          whileInView={{ left: "14rem" }}
+          initial={{ left: "17rem" }}
+          whileInView={{ left: "13em" }}
           transition={transition}
         >
           <Card
-            emoji={HeartEmoji}
-            heading={"Design"}
-            detail={"Figma, Sketch, Photoshop, Adobe Illustrator, Adobe xd"}
+            heading={"Who we Are?"}
+            detail={"Brief description of Who we are."}
+            fullDetail={
+              "Welcome to ZenQuix Technologies, a leading provider of comprehensive IT services tailored to meet the diverse needs of businesses. With a strong focus on Network Services, Cloud Services, Infrastructure Services, Software Development, and End User Services, we are dedicated to empowering organizations with cutting-edge technology solutions. At ZenQuix Technologies, we believe in the power of technology to drive business growth and innovation. Our team of skilled professionals brings a wealth of experience and expertise to the table, delivering exceptional services that address your unique IT requirements. Partner with us to unlock the full potential of your IT infrastructure and propel your organization towards success."
+            }
           />
         </motion.div>
-        {/* second card */}
+
         <motion.div
           initial={{ left: "-11rem", top: "12rem" }}
           whileInView={{ left: "-4rem" }}
           transition={transition}
         >
           <Card
-            emoji={Glasses}
-            heading={"Developer"}
-            detail={"Html, Css, JavaScript, React, Nodejs, Express"}
+            heading={"What we Do?"}
+            detail={"Short intro to what we do at ZenQuix Technologies."}
+            fullDetail={
+              "          At ZenQuix Technologies, we offer a comprehensive range of IT services to empower businesses with seamless technology solutions. Our expert team specializes in the following areas: Network Services, Cloud Services, Datacenter Services, Software Development, End User Services, IT Staff Augmentaion & Consulting Services"
+            }
           />
         </motion.div>
-        {/* 3rd */}
+
         <motion.div
-          initial={{ top: "19rem", left: "25rem" }}
+          initial={{ top: "19rem", left: "19rem" }}
           whileInView={{ left: "12rem" }}
           transition={transition}
         >
           <Card
-            emoji={Humble}
-            heading={"UI/UX"}
-            detail={
-              "Lorem ispum dummy text are usually use in section where we need some random text"
+            heading={"Why ZenQuix Technologies?"}
+            detail={"Short text about why choose ZenQuix Technologies."}
+            fullDetail={
+              "Choose ZenQuix Technologies as your trusted IT partner. Experience our expertise, comprehensive solutions, tailored approach, innovation-driven mindset, customer-centricity, and unwavering reliability. We are here to transform your technology landscape, optimize your IT operations, and empower your organization for success in the digital age."
             }
             color="rgba(252, 166, 31, 0.45)"
           />
         </motion.div>
+
         <div
           className="blur s-blur2"
           style={{ background: "var(--purple)" }}

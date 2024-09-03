@@ -1,80 +1,65 @@
-import React, { useContext } from "react";
-import "./Works.css";
-import Upwork from "../../img/Upwork.png";
-import Fiverr from "../../img/fiverr.png";
-import Amazon from "../../img/amazon.png";
-import Shopify from "../../img/Shopify.png";
-import Facebook from "../../img/Facebook.png";
-import { themeContext } from "../../Context";
-import { motion } from "framer-motion";
-import {Link} from 'react-scroll'
-const Works = () => {
-  // context
-  const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
+import React from 'react';
+import Marquee from 'react-fast-marquee';
+import p0 from "../../img/partners/p0.png";
+import p1 from "../../img/partners/p1.png";
+import p10 from "../../img/partners/p10.png";
+import p11 from "../../img/partners/p11.png";
+import p12 from "../../img/partners/p12.png";
+import p13 from "../../img/partners/p13.png";
+import p14 from "../../img/partners/p14.png";
+import p2 from "../../img/partners/p2.png";
+import p3 from "../../img/partners/p3.png";
+import p4 from "../../img/partners/p4.png";
+import p5 from "../../img/partners/p5.png";
+import p6 from "../../img/partners/p6.png";
+import p7 from "../../img/partners/p7.png";
+import p8 from "../../img/partners/p8.png";
+import p9 from "../../img/partners/p9.png";
+import './Works.css';
 
-  // transition
+const partners = [p0, p1, p2, p3, p4, p5, p6, p7];
+const partner = [ p8, p9, p10, p11, p12, p13, p14];
+
+function Works() {
   return (
-    <div className="works" id="works">
-      {/* left side */}
-      <div className="w-left">
-        <div className="awesome">
-          {/* dark Mode */}
-          <span style={{ color: darkMode ? "white" : "" }}>
-            Works for All these
-          </span>
-          <span>Brands & Clients</span>
-          <spane>
-            Lorem ispum is simpley dummy text of printing of printing Lorem
-            <br />
-            ispum is simpley dummy text of printingLorem ispum is simpley dummy
-            text
-            <br />
-            y dummy text of printingLorem
-            <br />
-            ispum is simpley dummy text of printing
-          </spane>
-          <Link to="contact" smooth={true} spy={true}>
-            <button className="button s-button">Hire Me</button>
-          </Link>
-          <div
-            className="blur s-blur1"
-            style={{ background: "#ABF1FF94" }}
-          ></div>
-        </div>
-
-        {/* right side */}
+    <div className="works-container">
+      <div className="title">
+        <h1>Our Partners</h1>
       </div>
-      <div className="w-right">
-        <motion.div
-          initial={{ rotate: 45 }}
-          whileInView={{ rotate: 0 }}
-          viewport={{ margin: "-40px" }}
-          transition={{ duration: 3.5, type: "spring" }}
-          className="w-mainCircle"
+
+      <div className="marquee-section">
+        {/* First Marquee Layer */}
+        <Marquee
+          direction="left"
+          speed={50}
+          gradient={false}
+          pauseOnHover={true}
+          className="marquee-layer"
         >
-          <div className="w-secCircle">
-            <img src={Upwork} alt="" />
-          </div>
-          <div className="w-secCircle">
-            <img src={Fiverr} alt="" />
-          </div>
-          <div className="w-secCircle">
-            <img src={Amazon} alt="" />
-          </div>{" "}
-          <div className="w-secCircle">
-            <img src={Shopify} alt="" />
-          </div>
-          <div className="w-secCircle">
-            <img src={Facebook} alt="" />
-          </div>
-        </motion.div>
-        {/* background Circles */}
-        <div className="w-backCircle blueCircle"></div>
-        <div className="w-backCircle yellowCircle"></div>
+          {partners.map((partner, index) => (
+            <div className="image-wrapper" key={`left-${index}`}>
+              <img src={partner} alt={`Technology Partner ${index + 1}`} className="partner-logo" />
+            </div>
+          ))}
+        </Marquee>
+
+        {/* Second Marquee Layer */}
+        <Marquee
+          direction="right"
+          speed={30}
+          gradient={false}
+          pauseOnHover={true}
+          className="marquee-layer marquee-layer-2"
+        >
+          {partner.map((partner, index) => (
+            <div className="image-wrapper" key={`right-${index}`}>
+              <img src={partner} alt={`Technology Partner ${index + 1}`} className="partner-logo" />
+            </div>
+          ))}
+        </Marquee>
       </div>
     </div>
   );
-};
+}
 
 export default Works;

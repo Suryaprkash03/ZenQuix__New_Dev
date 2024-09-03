@@ -1,0 +1,34 @@
+
+.carrousel {
+  overflow: hidden;
+  background: #eeeeee;
+  perspective: 900px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Adjust based on your layout */
+}
+
+.card {
+  position: absolute;
+  top: calc(50% - 266px); /* Adjust based on card height */
+  left: calc(50% - 150px); /* Adjust based on card width */
+  width: 300px;
+  height: 533px;
+  transition: transform 1200ms, opacity 500ms 500ms, box-shadow 800ms;
+}
+
+.position0 { opacity: 1; z-index: 10; transform: rotateY(0deg) translateZ(100px) scale(1); background-color: #fff; }
+.position1 { opacity: 0.5; z-index: 9; transform: rotateY(45deg) translateZ(100px) scale(0.85) translateX(270px); background-color: #ddd; }
+.position2 { opacity: 0.5; z-index: 8; transform: rotateY(90deg) translateZ(100px) scale(0.6) translateX(675px); background-color: #bbb; }
+.position3 { opacity: 0; z-index: 7; transform: rotateY(135deg) translateZ(100px) scale(0.3); background-color: #999; }
+.position4 { opacity: 0; z-index: 6; transform: rotateY(180deg) translateZ(100px) scale(0.2); background-color: #777; }
+.position5 { opacity: 0; z-index: 7; transform: rotateY(-135deg) translateZ(100px) scale(0.3); background-color: #555; }
+.position6 { opacity: 0.5; z-index: 8; transform: rotateY(-90deg) translateZ(100px) scale(0.6) translateX(-675px); background-color: #333; }
+.position7 { opacity: 0.5; z-index: 9; transform: rotateY(-45deg) translateZ(100px) scale(0.85) translateX(-270px); background-color: #111; }
+
+.card:hover {
+  box-shadow: 0 0 2em black;
+}

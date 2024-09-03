@@ -1,6 +1,6 @@
 import React from "react";
 
-import './FloatingDiv.css'
+import './FloatingDiv.css';
 
 
 const FloatinDiv = ({img, text1, text2}) => {
@@ -8,7 +8,7 @@ const FloatinDiv = ({img, text1, text2}) => {
     // darkMode
     <div className="floatingDiv">
       <img src={img} alt="" />
-      <span>
+      <span className='floattext'>
         {text1}
         <br/>
         {text2}
