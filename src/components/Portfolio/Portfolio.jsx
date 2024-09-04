@@ -18,7 +18,7 @@ const Portfolio = () => {
       imageUrl: img0,
       title: "Network Support",
       description:
-        "Maximize network efficiency and reliability with our dedicated support services. We ensure your network remains secure, stable, and optimized through proactive monitoring, timely troubleshooting, and regular maintenance. Our team is equipped to handle all your network needs, from remote monitoring and connectivity solutions to system updates and troubleshooting, ensuring minimal downtime and maximum performance.24/7 remote network monitoring Comprehensive network connectivity solutions Routine system and security updates Seamless OS upgrades and application patches Rapid network troubleshooting and issue resolution",
+        "Maximize network efficiency and reliability with our dedicated support services. ",
     },
     {
       position: "position1",
@@ -138,44 +138,14 @@ const Portfolio = () => {
               }`}
               onClick={(e) => handleCardClick(e, index)}
             >
-              <div className={styles.flipContainer}>
-                <div className={styles.flipper}>
-                  <div className={styles.front}>
-                    <img
-                      src={card.imageUrl}
-                      alt={`Project ${index + 1}`}
-                      className={styles.cardImage}
-                    />
-                    <div className={styles.cardContent}>
-                      <h3 className={styles.cardTitle}>{card.title}</h3>
-                    </div>
-                  </div>
-                  <div className={styles.back}>
-                    {/* <h1 className={styles.backTitle}>{card.title}</h1> */}
-                    {/* <p className={styles.backDescription}>{card.description}</p> */}
-                    <div className={styles.enterprise_networking_container}>
-                      <h3 className={styles.enterprise_title}>
-                        Enterprise Networking
-                      </h3>
-                      <p className={styles.enterprise_description}>
-                        Revolutionize your business connectivity with our
-                        cutting-edge enterprise networking solutions. We design,
-                        deploy, and manage robust network infrastructures that
-                        enable seamless communication, collaboration, and data
-                        transfer within your organization. Our expertise ensures
-                        high-performance networks that meet your evolving needs,
-                        empowering you to drive productivity and achieve your
-                        business goals.
-                      </p>
-                      <ul className={styles.enterprise_list}>
-                        <li>LAN</li>
-                        <li>WAN</li>
-                        <li>SD-WAN</li>
-                        <li>Wireless</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+              <img
+                src={card.imageUrl}
+                alt={`Project ${index + 1}`}
+                className={styles.cardImage}
+              />
+              <div className={styles.cardContent}>
+                <h3 className={styles.cardTitle}>{card.title}</h3>
+                <p className={styles.cardDescription}>{card.description}</p>
               </div>
             </div>
           ))}
