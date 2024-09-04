@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import { useInView } from "react-intersection-observer";
 import img6 from "../../assets/cloud/CLOUD-F.jpg";
 import img5 from "../../assets/consult/consult1.webp";
@@ -17,8 +18,7 @@ const Portfolio = () => {
       className: styles.c0,
       imageUrl: img0,
       title: "Network Support",
-      description:
-        "Maximize network efficiency and reliability with our dedicated support services. ",
+      description: "Maximize network efficiency and reliability with our dedicated support services.",
     },
     {
       position: "position1",
@@ -71,6 +71,9 @@ const Portfolio = () => {
     },
   ]);
 
+  const [modalContent, setModalContent] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
   const swipe = (direction) => {
     const newCards = cards.map((card) => {
       let newPosition;
@@ -93,21 +96,37 @@ const Portfolio = () => {
     setCards(newCards);
   };
 
-  const handleCardClick = (e, index) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
+  const handleCardClick = (direction) => {
+    swipe(direction);
+  };
 
-    if (clickX < rect.width / 2) {
-      swipe("left"); // Swipe left if clicked on the left side of the card
-    } else {
-      swipe("right"); // Swipe right if clicked on the right side of the card
-    }
+  const handleReadMoreClick = (card) => {
+    setModalContent({
+      sections: [
+        {
+          imageUrl: card.imageUrl,
+          title: card.title,
+          description: card.description,
+          additionalContent: "More details about " + card.title + "...",
+        },
+        {
+          imageUrl: "path/to/other/image.jpg",
+          title: "Additional Info",
+          description: "Further details about " + card.title + ".",
+        },
+      ],
+    });
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setModalContent(null);
   };
 
   const { ref, inView, entry } = useInView({
-    triggerOnce: false, // Trigger every time it comes into view
-    threshold: 0.1, // Trigger when 10% of the component is visible
+    triggerOnce: false,
+    threshold: 0.1,
   });
 
   useEffect(() => {
@@ -136,21 +155,61 @@ const Portfolio = () => {
               className={`${styles.card} ${styles[card.position]} ${
                 card.className
               }`}
-              onClick={(e) => handleCardClick(e, index)}
             >
               <img
                 src={card.imageUrl}
                 alt={`Project ${index + 1}`}
                 className={styles.cardImage}
+                onClick={() => handleCardClick("left")} // Swipe right on image click
               />
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
-                <p className={styles.cardDescription}>{card.description}</p>
+                <p className={styles.cardDescription}>
+                  {card.description}
+                </p>
+                <button
+                  className={styles.readMoreButton}
+                  onClick={() => handleReadMoreClick(card)}
+                >
+                  Read More
+                </button>
               </div>
             </div>
           ))}
         </div>
       </motion.div>
+
+      {isOpen && (
+        <div className={styles.modalContainer}>
+          <div className={styles.modalBackground}>
+            <div className={styles.modal}>
+              <AiOutlineClose className={styles.closeIcon} onClick={closeModal} />
+
+              {modalContent?.sections?.map((section, index) => (
+                <div
+                  key={index}
+                  className={
+                    index % 2 === 0 ? styles.modalSection : styles.modalSectionAlt
+                  }
+                >
+                  <img
+                    src={section.imageUrl}
+                    alt={section.title}
+                    className={styles.modalImage}
+                  />
+                  <div className={styles.modalContent}>
+                    <h2>{section.title}</h2>
+                    <p>{section.description}</p>
+                    {section.additionalContent && (
+                      <p>{section.additionalContent}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
