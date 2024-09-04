@@ -1,17 +1,33 @@
+/* General styling for the navigation wrapper */
 .n-wrapper {
   height: 10vh;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   margin-bottom: 2rem;
   top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
 
+/* Styling when the user scrolls */
+.n-wrapper.scrolled {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main navigation styling */
+.n-left,
+.n-right {
+  display: flex;
+  align-items: center;
 }
 
 .n-left {
   flex: 1;
-  align-items: center;
-  justify-content: left;
-  display: flex;
+  justify-content: flex-start;
   gap: 2rem;
 }
 
@@ -22,8 +38,6 @@
 
 .n-right {
   flex: 1;
-  display: flex;
-  align-items: center;
   justify-content: flex-end;
   font-weight: 400;
 }
@@ -82,26 +96,87 @@
   margin-left: 4rem;
 }
 
-.n-wrapper {
-  height: 10vh;
-  display: flex;
-  justify-content: right;
-  margin-bottom: 2rem;
-  top: 0;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-  background-color: transparent;
-}
-
-.n-wrapper.scrolled {
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-@media screen and (max-width: 480px) {
-  .n-list {
-    display: none;
+/* Mobile responsiveness */
+@media screen and (max-width: 780px) {
+  .n-wrapper {
+    height: 8vh; /* Adjust height for smaller screens */
+    padding: 0 1rem; /* Add padding for better spacing */
+    flex-direction: row; /* Keep items in a row */
+    justify-content: space-between; /* Distribute space between items */
   }
+
+  .n-left {
+    flex: none;
+    order: 1; /* Position logo on the left side */
+  }
+
+  .n-name {
+    font-size: 1.1rem; /* Smaller font size for mobile */
+  }
+
+  .n-right {
+    flex: none;
+    order: 2; /* Position toggle button on the right side */
+  }
+
+  .n-list {
+    display: none; /* Hide navigation list on mobile */
+  }
+
+  .n-button {
+    display: none; /* Hide buttons on mobile */
+  }
+
+  .menu-toggle {
+    display: block; /* Show toggle button on mobile */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+/* Side menu styling */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hide off-screen */
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  padding: 15px 20px;
+}
+
+.side-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.side-menu .close-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Show side menu */
+.side-menu.open {
+  left: 0;
 }

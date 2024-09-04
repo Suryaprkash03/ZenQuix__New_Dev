@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MissionVisionValues from "../components/AboutUs/AboutUs";
+import AboutCard from "../components/Card/AboutCard";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import Intro from "../components/Intro/Intro";
@@ -18,13 +18,13 @@ function Layout() {
       <Navbar />
       <Intro />
       <Services />
-      <MissionVisionValues/>
+      <AboutCard />
       <Works />
       <Portfolio />
       <Contact />
       <Footer />
     </div>
   );
-}
+};
 
 export default Layout;

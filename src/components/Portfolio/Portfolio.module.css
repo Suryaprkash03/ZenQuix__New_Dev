@@ -74,7 +74,7 @@
 }
 
 .readMoreButton {
-  background-color: #1d4065;
+  background-color: #1d4065; /* Blue background */
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -86,8 +86,8 @@
 
 .readMoreButton:hover {
   background-color: #ffffff;
-  color: #111;
-  border-color: #111;
+  color: #1d4065; /* Blue text */
+  border-color: #1d4065; /* Blue border */
 }
 
 .service_text {
@@ -175,74 +175,47 @@
 /* Modal Styles */
 .modalContainer {
   position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  transform: scale(0);
+  z-index: 1;
+  transform: scaleY(.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
 }
 
 .modalBackground {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  display: table-cell;
+  background: rgba(0, 0, 0, .8);
+  text-align: center;
+  vertical-align: middle;
 }
 
 .modal {
+  background: white;
+  padding: 50px;
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: 300;
   position: relative;
-  width: 80%;
-  max-width: 900px;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
+  transform: scale(0);
+  animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+  cursor: pointer;
 }
 
 .closeIcon {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: rgb(255, 0, 0); /* Blue color for close icon */
   cursor: pointer;
-  font-size: 24px;
 }
 
-.modalContentWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.modalImageWrapper {
-  flex: 1;
-}
-
-.modalImage {
-  width: 30%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.modalTextContent {
-  flex: 1;
-}
-
-.modalTextContent h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.modalTextContent p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 10px;
+.closeIcon:hover {
+  color: darkblue; /* Darker blue on hover */
 }
 
 /* Animation Keyframes */
@@ -265,4 +238,80 @@
   100% {
     transform: scale(1);
   }
+}
+
+/* Ensure the modal container takes up the whole viewport */
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal background and positioning */
+.modalBackground {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  max-height: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure modal content does not overflow */
+}
+
+/* Modal content and layout */
+.modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Prevent overflow from children */
+}
+
+/* Flex container for modal content */
+.modalContent {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 20px;
+}
+
+/* Scrollable content area */
+.modalText {
+  flex: 2;
+  padding-right: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100% - 40px); /* Adjust based on padding */
+  box-sizing: border-box;
+  color: rgb(0, 0, 0); /* Blue text color */
+  text-align: justify;
+  margin-left: 30px;
+}
+
+/* Adjust header margins */
+.modalText h2,
+.modalText h3 {
+  margin-top: 0;
+}
+
+/* Modal image container styling */
+.modalImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+/* Image styling */
+.modalImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }

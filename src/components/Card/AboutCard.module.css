@@ -1,0 +1,68 @@
+.container {
+  max-width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  margin-bottom: 20%;
+  margin-left: 5%;
+}
+
+.card {
+  width: calc(32.333% - 40px); /* Adjust width to fit three cards per row with gaps */
+  background-color: #143f9c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform-origin: center;
+  transform: perspective(800px) rotateY(25deg);
+  transition: 0.5s;
+  overflow: hidden;
+  height: 400px;
+  position: relative;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Adjust size as needed */
+  color: rgb(255, 255, 255); /* Icon color */
+  z-index: 2; /* Ensure the icon is on top */
+}
+
+.iconWrapper1{
+  font-size: 5rem;
+}
+
+.cardContent {
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.5s;
+  background-color: #102248;
+  color: white; /* Ensure background color matches the card's background */
+}
+
+.content{
+  opacity: 1; /* Hide content initially */
+}
+
+.card:hover {
+  transform: perspective(800px) rotateY(0deg);
+  background-color: rgb(15, 31, 77);
+}
+
+.card:hover .content {
+  opacity: 1;
+  color: white; /* Show content on hover */
+}
+
+.card:hover .iconWrapper {
+  color: white; /* Change icon color on hover */
+}

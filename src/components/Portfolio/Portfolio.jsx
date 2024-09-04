@@ -18,7 +18,46 @@ const Portfolio = () => {
       className: styles.c0,
       imageUrl: img0,
       title: "Network Support",
-      description: "Maximize network efficiency and reliability with our dedicated support services.",
+      description: "Comprehensive network support services for optimal performance.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+        // {
+        //   heading: "Datacenter Networking",
+        //   content: "Trust us with your datacenter networking requirements and experience unparalleled reliability and efficiency. ",
+        //   items: [
+        //     "VXLAN EVPN-based Datacenter Fabric (Cisco Nexus, Arista, Juniper)",
+        //     "Cisco ACI Datacenter Fabric",
+        //     "Cumulus based VXLAN EVPN Fabric (Whitebox solution)",
+        //     "SDN - Cisco ACI, NFV - NSX-V and NSX-T"
+        //   ]
+        // },
+        // {
+        //   heading: "Software Defined Networking",
+        //   content: "Embrace the agility and flexibility of software-defined networking to streamline your network infrastructure. Our SDN solutions centralize network control, automate provisioning, and optimize traffic flow, allowing you to adapt rapidly to changing demands. Experience enhanced network management, improved scalability, and simplified operations with our SDN expertise.",
+        //   items: ["SDN - Cisco ACI, VXLAN EVPN (Cisco Nexus & Arista)", "NFV - NSX-V and NSX-T", "SDWAN"]
+        // },
+        // {
+        //   heading: "Network Security",
+        //   content: "Protect your network from cyber threats and safeguard your valuable data with our comprehensive network security solutions. We employ industry-leading practices to implement robust security measures, including firewalls, intrusion detection and prevention systems, encryption, and secure remote access, ensuring the confidentiality, integrity, and availability of your network resources.",
+        //   items: ["Next-Gen Firewall", "Load Balancer", "Proxy", "Web Application Firewall (WAF)"]
+        // },
+        // {
+        //   heading: "Network Support Services",
+        //   content: "Our dedicated network support services ensure your network operates at peak performance and remains secure and reliable. We provide proactive monitoring, troubleshooting, maintenance, and optimization services to detect and resolve network issues promptly, minimizing downtime and maximizing network efficiency.",
+        //   items: [
+        //     "Remote network monitoring",
+        //     "Network connectivity solutions",
+        //     "Scheduled system and security updates",
+        //     "OS upgrades",
+        //     "Network troubleshooting",
+        //     "Application patches"
+        //   ]
+        // }
+      ]
     },
     {
       position: "position1",
@@ -26,6 +65,13 @@ const Portfolio = () => {
       imageUrl: img1,
       title: "Software Solutions",
       description: "Innovative software solutions for your business.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
     {
       position: "position2",
@@ -33,6 +79,13 @@ const Portfolio = () => {
       imageUrl: img2,
       title: "IT Staffing",
       description: "Reliable IT staffing services to meet your needs.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
     {
       position: "position3",
@@ -40,6 +93,13 @@ const Portfolio = () => {
       imageUrl: img3,
       title: "End User Support",
       description: "Comprehensive end-user support services.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
     {
       position: "position4",
@@ -47,6 +107,13 @@ const Portfolio = () => {
       imageUrl: img4,
       title: "Data Center Services",
       description: "Secure and efficient data center solutions.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
     {
       position: "position5",
@@ -54,6 +121,13 @@ const Portfolio = () => {
       imageUrl: img5,
       title: "Consulting Services",
       description: "Expert consulting for your IT challenges.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
     {
       position: "position6",
@@ -61,6 +135,13 @@ const Portfolio = () => {
       imageUrl: img6,
       title: "Cloud Solutions",
       description: "Scalable cloud solutions for your business.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
     {
       position: "position7",
@@ -68,6 +149,13 @@ const Portfolio = () => {
       imageUrl: img4,
       title: "Additional Services",
       description: "A wide range of additional IT services.",
+      sections: [
+        {
+          heading: "Enterprise Networking",
+          content: "Revolutionize your business connectivity with our cutting-edge enterprise networking solutions. ",
+          items: ["LAN", "WAN", "SD-WAN", "Wireless"]
+        },
+      ]
     },
   ]);
 
@@ -101,21 +189,7 @@ const Portfolio = () => {
   };
 
   const handleReadMoreClick = (card) => {
-    setModalContent({
-      sections: [
-        {
-          imageUrl: card.imageUrl,
-          title: card.title,
-          description: card.description,
-          additionalContent: "More details about " + card.title + "...",
-        },
-        {
-          imageUrl: "path/to/other/image.jpg",
-          title: "Additional Info",
-          description: "Further details about " + card.title + ".",
-        },
-      ],
-    });
+    setModalContent(card);
     setIsOpen(true);
   };
 
@@ -180,36 +254,41 @@ const Portfolio = () => {
       </motion.div>
 
       {isOpen && (
-        <div className={styles.modalContainer}>
-          <div className={styles.modalBackground}>
-            <div className={styles.modal}>
-              <AiOutlineClose className={styles.closeIcon} onClick={closeModal} />
-
-              {modalContent?.sections?.map((section, index) => (
-                <div
-                  key={index}
-                  className={
-                    index % 2 === 0 ? styles.modalSection : styles.modalSectionAlt
-                  }
-                >
-                  <img
-                    src={section.imageUrl}
-                    alt={section.title}
-                    className={styles.modalImage}
-                  />
-                  <div className={styles.modalContent}>
-                    <h2>{section.title}</h2>
-                    <p>{section.description}</p>
-                    {section.additionalContent && (
-                      <p>{section.additionalContent}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+  <div className={styles.modalContainer}>
+    <div className={styles.modalBackground}>
+      <div className={styles.modal}>
+        <AiOutlineClose className={styles.closeIcon} onClick={closeModal} />
+        <div className={styles.modalContent}>
+        <div className={styles.modalImageContainer}>
+            <img
+              src={modalContent?.imageUrl}
+              alt={modalContent?.title}
+              className={styles.modalImage}
+            />
           </div>
+          <div className={styles.modalText}>
+            {/* <h2>{modalContent?.title}</h2>
+            <p>{modalContent?.description}</p> */}
+            {modalContent?.sections?.map((section, index) => (
+              <div key={index} className={styles.section}>
+                <h3>{section.heading}</h3>
+                <p>{section.content}</p>
+                <ul className={styles.modalList}>
+                  {section.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
+
+
     </>
   );
 };
