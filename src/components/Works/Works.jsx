@@ -22,7 +22,7 @@ const partner = [ p8, p9, p10, p11, p12, p13, p14];
 
 function Works() {
   return (
-    <div className="works-container">
+    <div className="works-container" id='partner'>
       <div className="title">
         <h1>Our Partners</h1>
       </div>

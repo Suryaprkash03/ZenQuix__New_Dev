@@ -1,31 +1,25 @@
-import { useContext } from "react";
+import { AnimatePresence, motion } from 'framer-motion';
 import "./App.css";
-import MissionVisionValues from "./components/AboutUs/AboutUs";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
-import Intro from "./components/Intro/Intro";
-import Navbar from "./components/Navbar/Navbar";
-import Portfolio from "./components/Portfolio/Portfolio";
-import Services from "./components/Services/Services";
-import Works from "./components/Works/Works";
-import { themeContext } from "./Context";
+import Layout from './components/Layout';
+import Transition from "./components/Transitions/Transitions";
 function App() {
-  const theme = useContext(themeContext);
-  const darkMode = theme.state.darkMode;
   return (
-    <div
-      className="App"
-    >
-      <Navbar />
-      <Intro />
-      <Services />
-      <MissionVisionValues/>
-      <Works />
-      <Portfolio />
-      <Contact />
-      <Footer />
+    <div className='app' >
+      <Transition />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key="transition" // Ensure unique key to trigger exit/enter animations
+          initial={{ opacity: 0.1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Layout />
+        </motion.div>
+      </AnimatePresence>
+
     </div>
   );
-}
+};
 
 export default App;

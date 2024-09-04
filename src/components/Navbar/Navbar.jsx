@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import ZQlogo from "../../img/ZQLogo1.png";
 import "./Navbar.css";
-const navbar = () => {
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="n-wrapper" id="Navbar">
-      {/* left */}
+    <div className={`n-wrapper ${isScrolled ? "scrolled" : ""}`} id="Navbar">
       <div className="n-left">
         <div className="n-name">
-          <img src={ZQlogo} alt="" className="logo" />
+          <img src={ZQlogo} alt="Logo" className="logo" />
         </div>
-        
       </div>
-      {/* right */}
       <div className="n-right">
         <div className="n-list">
-          <ul style={{ listStyleType: "none" }}>
+          <ul>
             <li>
-              <Link activeClass="active" to="Navbar" spy={true} smooth={true}>
+              <Link activeClass="active" to="Intro" spy={true} smooth={true}>
                 Home
               </Link>
             </li>
@@ -27,7 +40,12 @@ const navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="works" spy={true} smooth={true}>
+              <Link to="partner" spy={true} smooth={true}>
+                Partners
+              </Link>
+            </li>
+            <li>
+              <Link to="service" spy={true} smooth={true}>
                 Services
               </Link>
             </li>
@@ -36,13 +54,11 @@ const navbar = () => {
                 Contact
               </Link>
             </li>
-            
           </ul>
-          
         </div>
       </div>
     </div>
   );
 };
 
-export default navbar;
+export default Navbar;

@@ -1,69 +1,44 @@
 import { motion } from "framer-motion";
-import React from "react";
-import { BiBullseye } from "react-icons/bi"; // Replace with actual icons
+import React, { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai"; // Import the close icon
+import { BiBullseye } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa";
 import { IoDiamond } from "react-icons/io5";
-
 import "./AboutUs.css";
 
 const MissionVisionValues = () => {
+  const [modalContent, setModalContent] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
   const data = [
     {
       title: "Our Mission",
-      content:
-        "Our mission is to innovate and lead in the industry, providing top-notch solutions that empower businesses to succeed.",
-      fullContent:
-        "Our mission is to innovate and lead in the industry, providing top-notch solutions that empower businesses to succeed. We strive to exceed expectations and deliver excellence through our commitment to quality, integrity, and teamwork.",
       icon: <BiBullseye className="icon" />,
+      content: "Detailed information about our mission..."
     },
     {
       title: "Our Vision",
-      content:
-        "To be a global leader in our field, inspiring positive change and setting new standards of excellence.",
-      fullContent:
-        "To be a global leader in our field, inspiring positive change and setting new standards of excellence. Our vision is to continuously evolve, adapt, and grow, always staying ahead of the curve and setting benchmarks for others to follow.",
       icon: <FaRegEye className="icon" />,
+      content: "Detailed information about our vision..."
     },
     {
       title: "Core Values",
-      content:
-        "Integrity, innovation, and customer-centricity are at the heart of everything we do.",
-      fullContent:
-        "Integrity, innovation, and customer-centricity are at the heart of everything we do. These core values guide our actions and decisions, ensuring that we remain true to our mission and vision while delivering unparalleled value to our clients.",
       icon: <IoDiamond className="icon" />,
+      content: "Detailed information about our core values..."
     },
   ];
 
-  const boxVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    }),
+  const openModal = (content) => {
+    setModalContent(content);
+    setIsOpen(true);
   };
 
-  const contentVariants = {
-    initial: (i) => ({
-      y: i % 2 === 0 ? 50 : -50, // First and third boxes from down to up, second box from up to down
-      opacity: 0,
-    }),
-    hover: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        ease: "easeInOut",
-      },
-    },
+  const closeModal = () => {
+    setIsOpen(false);
+    setModalContent(null);
   };
 
   return (
-    
     <div className="container">
       <div className="box-container">
         {data.map((item, i) => (
@@ -74,29 +49,28 @@ const MissionVisionValues = () => {
             initial="initial"
             animate="visible"
             whileHover="hover"
-            variants={boxVariants}
+            onClick={() => openModal(item.content)}
           >
             <div className="icon-container">
-              <motion.div className="box-icon" whileHover={{ opacity: 0 }}>
+              <motion.div className="box-icon">
                 {item.icon}
               </motion.div>
             </div>
             <h2 className="box-title">{item.title}</h2>
-            <motion.p
-              className="box-content"
-              variants={contentVariants}
-              custom={i}
-              initial="initial"
-              animate="visible"
-              whileHover="hover"
-            >
-              {/* {item.content} */}
-              <span className="full-content">{item.fullContent}</span>
-            </motion.p>
           </motion.div>
         ))}
-       
       </div>
+
+      {isOpen && (
+        <div id="modal-container" className={isOpen ? "one" : "one out"}>
+          <div className="modal-background">
+            <div className="modal">
+              <AiOutlineClose className="close-icon" onClick={closeModal} />
+              <h2>{modalContent}</h2>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
