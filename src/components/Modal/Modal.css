@@ -1,3 +1,4 @@
+/* Modal Overlay */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -19,12 +20,13 @@
     visibility: visible;
 }
 
+/* Modal Content */
 .modal-content {
     background: #153258;
     padding: 2rem;
     border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: 600px; /* Keep max-width for larger screens */
     position: relative;
     transform: scale(0.8);
     transition: transform 0.4s ease;
@@ -34,19 +36,54 @@
     transform: scale(1);
 }
 
+/* Modal Body */
 .modal-body {
     margin-top: 1rem;
     font-size: 1rem;
     color: rgb(255, 255, 255);
 }
 
+/* Close Button */
 .close-button {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 10px; /* Adjust position for better alignment on smaller screens */
     font-size: 1.5rem;
     cursor: pointer;
     background: none;
     border: none;
     color: #ffffff;
+}
+
+/* Mobile View Adjustments */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%; /* Ensure modal fits within the viewport on smaller screens */
+        padding: 1.5rem; /* Adjust padding for better spacing */
+        overflow-y: auto;
+        height: 300px;
+    }
+
+    .close-button {
+        top: 5px; /* Adjust close button position */
+        right: 5px; /* Adjust close button position */
+        font-size: 1.2rem; /* Reduce close button size */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 100%; /* Full width on very small screens */
+        padding: 1rem; /* Further adjust padding */
+    }
+
+    .close-button {
+        top: 3px; /* Further adjust close button position */
+        right: 3px; /* Further adjust close button position */
+        font-size: 1rem; /* Further reduce close button size */
+    }
+
+    .modal-body {
+        font-size: 0.9rem; /* Adjust font size for readability on small screens */
+    }
 }

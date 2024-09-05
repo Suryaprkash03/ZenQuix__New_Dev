@@ -5,10 +5,15 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -27,30 +32,64 @@ const Navbar = () => {
         </div>
       </div>
       <div className="n-right">
-        <div className="n-list">
-          <ul>
+        <button className="custom-navbar-toggler" onClick={toggleNavbar}>
+          ☰
+        </button>
+        <div className={`custom-navbar-collapse ${isOpen ? "open" : ""}`}>
+          <ul className="custom-nav-links">
             <li>
-              <Link activeClass="active" to="Intro" spy={true} smooth={true}>
+              <Link 
+                activeClass="active" 
+                to="Intro" 
+                spy={true} 
+                smooth={true} 
+                className="custom-nav-link" 
+                onClick={() => setIsOpen(false)}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to="services" spy={true} smooth={true}>
+              <Link 
+                to="services" 
+                spy={true} 
+                smooth={true} 
+                className="custom-nav-link" 
+                onClick={() => setIsOpen(false)}
+              >
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="partner" spy={true} smooth={true}>
+              <Link 
+                to="partner" 
+                spy={true} 
+                smooth={true} 
+                className="custom-nav-link" 
+                onClick={() => setIsOpen(false)}
+              >
                 Partners
               </Link>
             </li>
             <li>
-              <Link to="service" spy={true} smooth={true}>
+              <Link 
+                to="service" 
+                spy={true} 
+                smooth={true} 
+                className="custom-nav-link" 
+                onClick={() => setIsOpen(false)}
+              >
                 Services
               </Link>
             </li>
             <li>
-              <Link to="contact" spy={true} smooth={true}>
+              <Link 
+                to="contact" 
+                spy={true} 
+                smooth={true} 
+                className="custom-nav-link" 
+                onClick={() => setIsOpen(false)}
+              >
                 Contact
               </Link>
             </li>
