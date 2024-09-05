@@ -1,78 +1,103 @@
+/* Contact Form Styles */
 .contact-form {
-    padding: 0 3rem;
-    display: flex;
-    height: 80vh;
-    margin-top: 9rem;
-    padding-top: 3rem;
-    margin-bottom: 5%;
-  }
-  
-  .w-left {
-    flex: 1;
-  }
-  
-  .c-right {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    flex: 1;
-    margin-left: -40%;
-  }
-  
-  .c-right > form {
-    display: flex;
+  padding: 0 3rem;
+  display: flex;
+  height: 80vh;
+  margin-top: 9rem;
+  padding-top: 3rem;
+  margin-bottom: 5%;
+  /* Ensure spacing and layout adjustments for different screens */
+}
+
+.w-left {
+  flex: 1;
+}
+
+.c-right {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  flex: 1;
+  margin-left: -40%;
+}
+
+.c-right > form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.c-right .user {
+  width: 100%;
+  height: 2rem;
+  padding: 0.3em;
+  outline: none;
+  border: 2px solid #153258;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.user_div {
+  width: 100%;
+  margin-left: 10px;
+}
+
+textarea {
+  height: 4rem !important;
+  width: 100%;
+}
+
+.c-blur1 {
+  top: 1rem;
+  left: 8rem;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .contact-form {
+    padding: 0 1rem; /* Reduce padding for smaller screens */
     flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+    height: auto; /* Allow height to adjust based on content */
+    margin-top: 190%; /* Adjust margin for smaller screens */
+    margin-bottom: 2rem; /* Adjust margin for smaller screens */
   }
-  
+
+  .c-right {
+    margin-left: -1rem; /* Remove negative margin for better alignment */
+    margin-top: 2rem; /* Add top margin to space out elements */
+  }
+
+  .c-right > form {
+    width: 100%; /* Ensure form takes full width */
+    padding: 0 1rem; /* Add padding inside form */
+  }
+
   .form-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    width: 100%;
-    margin-left: 10px;
+    grid-template-columns: 1fr; /* Stack form fields vertically */
+    gap: 1rem; /* Reduce gap between form fields */
   }
-  
+
   .c-right .user {
-    width: 100%;
-    height: 2rem;
-    padding: 0.3em;
-    outline: none;
-    border: 2px solid #153258;
-    border-radius: 8px;
-    font-size: 16px;
+    width: 100%; /* Ensure inputs take full width */
+    height: auto; /* Adjust height for smaller screens */
+    font-size: 14px; /* Adjust font size */
   }
-  .user_div
-  {
-    width: 100%;
-    margin-left: 10px;
-  }
-  
+
   textarea {
-    height: 4rem !important;
-    width: 100%;
+    height: auto; /* Allow textarea to adjust height based on content */
   }
-  
+
   .c-blur1 {
-    top: 1rem;
-    left: 8rem;
+    top: 0.5rem; /* Adjust position for smaller screens */
+    left: 5rem; /* Adjust position for smaller screens */
   }
-  
-  @media screen and (max-width: 480px) {
-    .contact-form {
-      padding: 0;
-      flex-direction: column;
-      gap: 5rem;
-      height: 40rem;
-    }
-  
-    .c-right .user {
-      width: 16rem;
-    }
-  
-    .form-group {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

@@ -315,3 +315,301 @@
   object-fit: cover;
   border-radius: 10px;
 }
+@media (max-width: 768px) {
+
+  /* Carousel and Card Styles */
+.carrousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 80%;
+  margin-bottom: 50%;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(30px); /* Initially shifted down */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+}
+
+.swiperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  perspective: 900px;
+  position: absolute;
+  width: 100%;
+}
+
+.cardImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.cardImage1 {
+  width: 100%;
+  height: 100px;
+}
+
+.card {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  transition: transform 600ms, opacity 300ms, box-shadow 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffffff00;
+  color: #333;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+.cardContent {
+  text-align: center;
+  padding: 10px;
+  background: rgba(2, 2, 2, 0);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.cardDescriptionBack {
+  font-size: 1rem;
+  margin: 20px;
+}
+
+.readMoreButton {
+  background-color: #1d4065; /* Blue background */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Quicksand";
+  padding: 10px;
+  font-weight: 600;
+}
+
+.readMoreButton:hover {
+  background-color: #ffffff;
+  color: #1d4065; /* Blue text */
+  border-color: #1d4065; /* Blue border */
+}
+
+.service_text {
+  color: var(--orange);
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-left: 24%;
+  margin-bottom: 20%;
+}
+
+.SeriveDiv {
+  margin-top: -10%;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.c0 { background-color: #fff; }
+.c1 { background-color: #ddd; }
+.c2 { background-color: #bbb; }
+.c3 { background-color: #999; }
+.c4 { background-color: #777; }
+.c5 { background-color: #555; }
+.c6 { background-color: #333; }
+.c7 { background-color: #111; }
+
+.position0 {
+  opacity: 1;
+  z-index: 10;
+  transform: rotateY(0deg) translateZ(100px) rotateY(0deg) scale(1);
+}
+
+.position1 {
+  opacity: 1;
+  z-index: 9;
+  transform: rotateY(45deg) translateZ(100px) rotateY(-45deg) scale(0.85) translateX(270px);
+}
+
+.position2 {
+  opacity: 1;
+  z-index: 8;
+  transform: rotateY(90deg) translateZ(100px) rotateY(-90deg) scale(0.6) translateX(675px);
+}
+
+.position3 {
+  opacity: 0;
+  z-index: 7;
+  transform: rotateY(135deg) translateZ(100px) rotateY(-135deg) scale(0.3);
+}
+
+.position4 {
+  opacity: 0;
+  z-index: 6;
+  transform: rotateY(180deg) translateZ(100px) rotateY(180deg) scale(0.2);
+}
+
+.position5 {
+  opacity: 0;
+  z-index: 7;
+  transform: rotateY(-135deg) translateZ(100px) rotateY(135deg) scale(0.3);
+}
+
+.position6 {
+  opacity: 1;
+  z-index: 8;
+  transform: rotateY(-90deg) translateZ(100px) rotateY(90deg) scale(0.6) translateX(-675px);
+}
+
+.position7 {
+  opacity: 1;
+  z-index: 9;
+  transform: rotateY(-45deg) translateZ(100px) rotateY(45deg) scale(0.85) translateX(-270px);
+}
+
+/* Dark Mode */
+.dark-mode .card {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .readMore {
+  background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modalContainer {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 1;
+  transform: scaleY(.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.modalBackground {
+  display: table-cell;
+  background: rgba(0, 0, 0, .8);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: 300;
+  position: relative;
+  transform: scale(0);
+  animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+  cursor: pointer;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: rgb(255, 0, 0); /* Blue color for close icon */
+  cursor: pointer;
+}
+
+.closeIcon:hover {
+  color: darkblue; /* Darker blue on hover */
+}
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal background and positioning */
+.modalBackground {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  max-height: 40%;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow:scroll; /* Ensure modal content does not overflow */
+}
+
+/* Modal content and layout */
+.modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Prevent overflow from children */
+}
+
+/* Flex container for modal content */
+.modalContent {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 20px;
+}
+
+/* Scrollable content area */
+.modalText {
+  flex: 2;
+  padding-right: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100% - 40px); /* Adjust based on padding */
+  box-sizing: border-box;
+  color: rgb(0, 0, 0); /* Blue text color */
+  text-align: justify;
+  margin-left: 30px;
+}
+
+/* Adjust header margins */
+.modalText h2,
+.modalText h3 {
+  margin-top: 0;
+}
+
+/* Modal image container styling */
+.modalImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+/* Image styling */
+.modalImage {
+  max-width: 400%;
+  max-height: 600%;
+  object-fit: cover;
+  border-radius: 10px;
+  
+}
+}

@@ -1,3 +1,4 @@
+/* Container */
 .container {
   max-width: 90%;
   display: flex;
@@ -8,6 +9,7 @@
   margin-left: 5%;
 }
 
+/* Card */
 .card {
   width: calc(32.333% - 40px); /* Adjust width to fit three cards per row with gaps */
   background-color: #143f9c;
@@ -16,43 +18,50 @@
   transform-origin: center;
   transform: perspective(800px) rotateY(25deg);
   transition: 0.5s;
-  overflow: hidden;
-  height: 400px;
+  overflow: hidden; /* Hide overflow */
+  height: 400px; /* Fixed height */
   position: relative;
   cursor: pointer;
 }
 
+
+
+/* Icon Wrapper */
 .iconWrapper {
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  /* Adjust size as needed */
-  color: rgb(255, 255, 255); /* Icon color */
-  z-index: 2; /* Ensure the icon is on top */
+  color: rgb(255, 255, 255);
+  z-index: 0;
 }
 
-.iconWrapper1{
-  font-size: 5rem;
+/* Adjust icon size */
+.iconWrapper1 {
+  font-size: 4rem;
 }
 
+/* Card Content */
 .cardContent {
   padding: 20px;
   text-align: center;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
-  transition: opacity 0.5s;
   background-color: #102248;
-  color: white; /* Ensure background color matches the card's background */
+  color: white;
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+.cardContent h2{
+  margin-top: 70px;
+}
+/* Content visibility */
+.content {
+  opacity: 1;
 }
 
-.content{
-  opacity: 1; /* Hide content initially */
-}
-
+/* Hover effects */
 .card:hover {
   transform: perspective(800px) rotateY(0deg);
   background-color: rgb(15, 31, 77);
@@ -60,9 +69,50 @@
 
 .card:hover .content {
   opacity: 1;
-  color: white; /* Show content on hover */
+  color: white;
 }
 
 .card:hover .iconWrapper {
-  color: white; /* Change icon color on hover */
+  color: white;
+}
+
+/* Mobile View Adjustments */
+@media screen and (max-width: 768px) {
+  .card {
+    width: calc(48% - 20px); /* Adjust width to fit two cards per row with gaps */
+    height: 300px; /* Adjust height for better fit */
+  }
+  .iconWrapper1 {
+    font-size: 3rem;
+  }
+
+  .cardContent {
+    height: auto; /* Allow height to adjust for mobile */
+    max-height: 100%; /* Ensure it doesn’t exceed card height */
+    overflow-y: auto; /* Enable scrolling if needed */
+    text-align:initial;
+  }
+
+  .container {
+    gap: 20px; /* Reduce gap between cards */
+    margin-bottom: 10%; /* Adjust bottom margin */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: calc(100% - 20px); /* Full width for single card per row */
+    height: 450px; /* Adjust height for better fit */
+  }
+
+  .cardContent {
+    height: auto; /* Allow height to adjust for mobile */
+    max-height: 450px; /* Ensure it doesn’t exceed card height */
+    overflow-y: auto; /* Enable scrolling if needed */
+  }
+
+  .container {
+    gap: 70px; /* Reduce gap between cards */
+    margin-bottom: 50%; /* Adjust bottom margin */
+  }
 }

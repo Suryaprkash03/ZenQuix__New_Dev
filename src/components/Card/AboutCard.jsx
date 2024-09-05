@@ -14,8 +14,7 @@ const CardComponent = () => {
         <div className={styles.cardContent}>
           <h2>Our Mission</h2>
           <p className={styles.content}>
-            This is a detailed description for our mission. It is too long and
-            should be scrollable if it exceeds the card height.
+          At ZenQuix Technologies, our mission is to go beyond being a standard IT services provider. We are passionate about transforming businesses through technology, driving innovation, and delivering exceptional results.
           </p>
         </div>
       </div>
@@ -26,8 +25,7 @@ const CardComponent = () => {
         <div className={styles.cardContent}>
           <h2>Our Vision</h2>
           <p className={styles.content}>
-            This is a detailed description for our vision. It is too long and
-            should be scrollable if it exceeds the card height.
+          ZenQuix Technologies's vision is to lead the way as a premier provider of comprehensive IT services, renowned for our innovative solutions, expertise, and unwavering commitment to our clients' success. 
           </p>
         </div>
       </div>
@@ -38,8 +36,7 @@ const CardComponent = () => {
         <div className={styles.cardContent}>
           <h2>Core Values</h2>
           <p className={styles.content}>
-            This is a detailed description for our core values. It is too long
-            and should be scrollable if it exceeds the card height.
+          At ZenQuix Technologies, our core values are the guiding principles that define our company. We are driven by a commitment to excellence, always striving to deliver the highest quality IT services. 
           </p>
         </div>
       </div>

@@ -1,26 +1,26 @@
 /* Container Styling */
 .works-container {
-  padding: 80px 30px;
+  padding: 40px 20px; /* Adjust padding for mobile */
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin-top: -50px;
+  margin-top: -30px; /* Reduce top margin for mobile */
 }
 
 /* Title Styling with Animation */
 .title h1 {
-  margin-top: -60px;
-  margin-bottom: 50px;
+  margin-top: -40px; /* Reduce margin-top for mobile */
+  margin-bottom: 30px; /* Reduce margin-bottom for mobile */
   color: var(--orange);
   font-weight: bold;
-  font-size: 2.1rem;
+  font-size: 1.8rem; /* Adjust font-size for mobile */
   animation: fadeInDown 1s ease-out;
 }
 
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px); /* Adjust animation for mobile */
   }
   to {
     opacity: 1;
@@ -31,18 +31,18 @@
 /* Marquee Section */
 .marquee-section {
   position: relative;
-  height: 190px;
+  height: 150px; /* Adjust height for mobile */
 }
 
 /* Marquee Layers */
 .marquee-layer {
   position: absolute;
   width: 100%;
-  margin-top: -30px;
+  margin-top: -20px; /* Adjust margin-top for mobile */
 }
 
 .marquee-layer-2 {
-  top: 135px; /* Position the second layer below the first */
+  top: 100px; /* Adjust position for mobile */
 }
 
 /* Image Wrapper Styling */
@@ -50,40 +50,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 60px;
-  transition: transform 0.1s, ;
+  padding: 0 20px; /* Adjust padding for mobile */
+  transition: transform 0.3s; /* Increase transition time for smoother effect */
 }
 
 .image-wrapper:hover {
-  transform: scale(1.1);
-
+  transform: scale(1.05); /* Slightly reduce scale for mobile */
 }
 
 /* Partner Logo Styling */
 .partner-logo {
-  max-height: 100px;
+  max-height: 80px; /* Adjust max-height for mobile */
   transition: filter 0.3s;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Additional Media Queries for Smaller Screens */
+@media (max-width: 480px) {
   .title h1 {
-    font-size: 2em;
+    font-size: 1.5rem; /* Further reduce font-size for very small screens */
+    margin-top: -20px; /* Further reduce margin-top */
+    margin-bottom: 20px; /* Further reduce margin-bottom */
   }
 
   .marquee-section {
-    height: 200px;
+    height: 120px;
+    margin-bottom: 40%; /* Further adjust height for very small screens */
   }
 
   .marquee-layer-2 {
-    top: 100px;
+    top: 80px; /* Adjust position for very small screens */
   }
 
   .partner-logo {
-    max-height: 80px;
+    max-height: 50px;
+    padding: 10px; /* Further reduce max-height for very small screens */
   }
 
   .image-wrapper {
-    padding: 0 20px;
+    padding: 0 10px; /* Further reduce padding for very small screens */
+  }
+}
+@media (max-width: 780px) {
+  .title h1 {
+    font-size: 1.5rem; /* Further reduce font-size for very small screens */
+    margin-top: -20px; /* Further reduce margin-top */
+    margin-bottom: 20px; /* Further reduce margin-bottom */
+  }
+
+  .marquee-section {
+    height: 120px;
+    margin-bottom: 40%; /* Further adjust height for very small screens */
+  }
+
+  .marquee-layer-2 {
+    top: 80px; /* Adjust position for very small screens */
+  }
+
+  .partner-logo {
+    max-height: 50px;
+    padding: 10px; /* Further reduce max-height for very small screens */
+  }
+
+  .image-wrapper {
+    padding: 0 10px; /* Further reduce padding for very small screens */
   }
 }
