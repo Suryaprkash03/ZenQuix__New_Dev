@@ -6,6 +6,7 @@ import Vector1 from "../../img/Vector1.png";
 import Vector2 from "../../img/Vector2.png";
 import boy from "../../img/boy.png";
 import vector3 from '../../img/vector3.png';
+import { fadeIn } from "../../varitents";
 import "./Intro.css";
 const Intro = () => {
   // Transition
@@ -19,14 +20,19 @@ const Intro = () => {
     <div className="Intro" id="Intro">
       {/* left name side */}
       <div className="i-left">
-        <div className="i-name">
+        <motion.div 
+         variants={fadeIn("up", 0.5)}
+         initial="hidden"
+         animate="show"
+         exit="hidden"
+        className="i-name">
           {/* yahan change hy darkmode ka */}
           <span >Welcome to </span>
           <span>ZenQuix Technologies Pvt Ltd</span>
           <span>
           A leading provider of comprehensive IT services tailored to meet the diverse needs of businesses....
           </span>
-        </div>
+        </motion.div>
         <Link to="contact" smooth={true} spy={true}>
           <button className="button i-button ">learn More</button>
         </Link>
